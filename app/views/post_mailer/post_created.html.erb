@@ -1,0 +1,6 @@
+<p>You just created post <%= @user.name %>!</p>
+
+<q><%= @post.title %></q>
+<blockquote><%= @post.body %></blockquote>
+
+<p>To see this post, please go to: <%= post_url(@post) %> </p>

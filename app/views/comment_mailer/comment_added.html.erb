@@ -1,0 +1,5 @@
+<p><%= @current_user.name %> commented your <%= link_to 'post', @post %>:</p>
+
+<blockquote><%= @comment %></blockquote>
+
+<p>To reply, go to: <%= post_url(@post) %> </p>
