@@ -23,15 +23,20 @@
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
 
-<br>
+<br><br>
+
+<section id="comments-section">
+
+<p><%= link_to 'Comments', '#' %> (<%= @post.comments.count %>)</p>
+
 <br>
 
-<p> <%= @post.comments.count %> Comments</p>
-
-<br>
-
-<%= render @post.comments %>
+<ol id="comments">
+  <%= render @post.comments %>
+</ol>
 
 <br>
 
 <%= render "comments/form" %>
+
+</section>

@@ -1,10 +1,9 @@
 <%= form_for([@post, @post.comments.build]) do |f| %>
     <div class="field">
-
-      <%= f.text_area :content %>
+      <%= f.text_area :content, autofocus: true, placeholder: 'Your comment', class: 'form-control', style: 'width: 30%' %>
     </div>
 
     <div class="actions">
-      <%= f.submit %>
+      <%= f.submit 'Post Comment', class: 'btn' %>
     </div>
 <% end %>
