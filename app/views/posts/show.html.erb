@@ -25,7 +25,7 @@
 
 <br><br>
 
-<p><%= link_to 'Comments', '#', id: 'comments-link' %> (<%= @post.comments.count %>)</p>
+<p><%= link_to 'Comments', '#', id: 'comments-link' %> <span id="comments-count">(<%= @post.comments.count %>)</span></p>
 
 <section id="comments-section">
 
