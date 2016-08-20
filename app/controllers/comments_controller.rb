@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   def create
-    @post = Post.find(params[:post_id])
+    @post = Post.friendly.find(params[:post_id])
     @comment = @post.comments.create(comment_params)
 
     #CommentMailer.comment_added(current_user, @post, @comment.content).deliver
@@ -9,6 +9,13 @@ class CommentsController < ApplicationController
       format.html { redirect_to post_path(@post) }
       format.js
     end
+  end
+
+  def destroy
+    @post = Post.friendly.find(params[:post_id])
+    @comment = @post.comments.find(params[:id]).destroy
+
+    redirect_to @post
   end
 
   private
