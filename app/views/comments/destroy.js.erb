@@ -1,0 +1,4 @@
+$('.comment-destroy').bind('ajax:success', function() {
+  $(this).closest('div').fadeOut();
+  $('#comments-count').text('(<%= @post.comments.count %>)');
+});

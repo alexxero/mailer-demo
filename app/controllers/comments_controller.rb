@@ -15,7 +15,10 @@ class CommentsController < ApplicationController
     @post = Post.friendly.find(params[:post_id])
     @comment = @post.comments.find(params[:id]).destroy
 
-    redirect_to @post
+    respond_to do |format|
+      format.html { redirect_to post_path(@post) }
+      format.js
+    end    
   end
 
   private
