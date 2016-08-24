@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
     @post = Post.friendly.find(params[:post_id])
     @comment = @post.comments.create(comment_params)
 
-    #CommentMailer.comment_added(current_user, @post, @comment.content).deliver
+    CommentMailer.comment_added(current_user, @post, @comment.content).deliver
 
     respond_to do |format|
       format.html { redirect_to post_path(@post) }
