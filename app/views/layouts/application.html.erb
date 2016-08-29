@@ -2,6 +2,7 @@
 <html>
 <head>
   <title><%= yield(:page_title) %> | CancanDemo</title>
+  <%= favicon_link_tag('m.ico') %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -15,8 +16,8 @@
         <p><%= current_user.name %> | <%= link_to 'Log out', destroy_user_session_path, method: :delete %></p>
     <% end %>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <!--<p class="notice"><%= notice %></p>-->
+    <!--<p class="alert"><%= alert %></p>-->
 
     <%= yield %>
 </div>
