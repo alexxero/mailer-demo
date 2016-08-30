@@ -1,8 +1,8 @@
 <div>
 	<span class="date datetime text-muted"><%= time_ago_in_words(comment.created_at) %> ago</span>
 
-	<p><%= comment.content %></p>
-	<%= link_to 'x', post_comment_path(comment.post, comment), method: :delete, :class => 'comment-destroy', remote: true %>
+	<p><%= comment.content %>
+	<sup><%= link_to 'x', post_comment_path(comment.post, comment), method: :delete, :class => 'comment-destroy', remote: true, title: 'Delete' %></sup></p>
 
 	<hr>
 </div>
