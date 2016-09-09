@@ -15,6 +15,7 @@
 <p>
   <strong>Author:</strong>
   <%= @post.username %>
+  <%= image_tag(@author.avatar.url(:thumb), class: 'img-circle') %>
 </p>
 
 <p>

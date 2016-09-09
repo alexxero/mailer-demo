@@ -15,17 +15,21 @@
     <%= f.label :title %><br>
     <%= f.text_field :title, autofocus: true, class: "form-control" %>
   </div>
+
   <div class="field form-group">
     <%= f.label :body %><br>
     <%= f.text_area :body, class: "form-control" %>
   </div>
+
   <div class="field form-group">
     <%= f.hidden_field :user_id, :value => current_user.id %>
   </div>
+
   <div class="field form-group">
     <%= f.hidden_field :username, :value => current_user.name %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+
+  <div class="field form-group">
+    <%= submit_tag "Submit", class: 'btn btn-primary', data: { disable_with: "Please wait..." }%>
   </div>
 <% end %>

@@ -11,6 +11,8 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @author_id = @post.user_id
+    @author = User.find(@author_id)
   end
 
   # GET /posts/new
@@ -31,7 +33,8 @@ class PostsController < ApplicationController
     respond_to do |format|
       if @post.save
 
-        #PostMailer.post_created(@user, @post).deliver_now
+        PostMailer.post_created(@user, @post).deliver_later
+        PostMailer.admin_notifier(@user, @post).deliver_later
 
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
