@@ -76,4 +76,18 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.action_mailer.delivery_method = :smtp
+
+  ActionMailer::Base.smtp_settings = {
+      :address        => 'smtp.sendgrid.net',
+      :port           => '587',
+      :user_name      => ENV['SG_USERNAME'],
+      :password       => ENV['SG_PASSWORD'],
+      :authentication => 'login',
+      :enable_starttls_auto => 'true'
+  }
+
+  config.action_mailer.default_url_options = { host: 'shrouded-caverns-13521.herokuapp.com' }
+
 end
