@@ -4,7 +4,7 @@ class PostMailer < ApplicationMailer
     @user = user
     @post = post
     mail(to: user.email,
-         subject: 'New post created')
+         subject: "Your new post: '#{@post.title}' is created")
   end
 
   def admin_notifier(user, post)
@@ -12,7 +12,7 @@ class PostMailer < ApplicationMailer
     @post = post
     @admin = User.find_by(name: 'admin')
     mail(to: @admin.email,
-         subject: "#{@user.name} just created a new post: '#{@post.title}'")
+         subject: "#{@user.name.capitalize} just created a new post: '#{@post.title}'")
   end
 
 end
