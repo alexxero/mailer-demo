@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'comments/create'
 
-  root 'home#index'
+  root 'posts#index'
   resources :posts do
     resources :comments
   end
